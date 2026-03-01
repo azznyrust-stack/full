@@ -1,0 +1,17 @@
+{
+  "window_title_contains": "DeinSpiel",
+  "rois": {
+    "gold_text": {
+      "x": 0.8,
+      "y": 0.02,
+      "w": 0.15,
+      "h": 0.05
+    },
+    "chat_box": {
+      "x": 0.02,
+      "y": 0.7,
+      "w": 0.4,
+      "h": 0.25
+    }
+  }
+}
