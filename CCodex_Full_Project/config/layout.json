@@ -1,17 +1,35 @@
 {
   "window_title_contains": "DeinSpiel",
   "rois": {
-    "gold_text": {
-      "x": 0.8,
-      "y": 0.02,
-      "w": 0.15,
-      "h": 0.05
-    },
-    "chat_box": {
-      "x": 0.02,
-      "y": 0.7,
-      "w": 0.4,
-      "h": 0.25
-    }
+    "gold_text": { "x": 0.80, "y": 0.02, "w": 0.15, "h": 0.05 },
+    "loot_chat": { "x": 0.02, "y": 0.70, "w": 0.40, "h": 0.25 },
+    "dungeon_status": { "x": 0.35, "y": 0.02, "w": 0.30, "h": 0.06 },
+    "dungeon_counter": { "x": 0.90, "y": 0.10, "w": 0.08, "h": 0.05 },
+    "kill_counter": { "x": 0.90, "y": 0.16, "w": 0.08, "h": 0.05 }
+  },
+  "parsing": {
+    "loot_patterns": [
+      "(?i)you (?:received|obtained|looted)\\s+(.+)",
+      "(?i)beute[:\\-]?\\s*(.+)",
+      "(?i)item erhalten[:\\-]?\\s*(.+)"
+    ],
+    "loot_keywords": ["loot", "beute", "erhalten", "obtained", "received"],
+    "dungeon_start_keywords": ["dungeon start", "entered dungeon", "betritt", "startet dungeon"],
+    "dungeon_end_keywords": ["dungeon clear", "dungeon completed", "verlassen", "abgeschlossen"],
+    "kill_patterns": [
+      "(?i)(?:you|du) (?:killed|defeated)\\s+(.+)",
+      "(?i)(.+) (?:was slain|wurde besiegt)"
+    ],
+    "kill_keywords": ["killed", "defeated", "besiegt", "slain"]
+  },
+  "smoothing": {
+    "median_window": 5,
+    "stable_frames": 2,
+    "event_cooldown_ms": 1500,
+    "max_gold_jump": 5000000
+  },
+  "session": {
+    "autosave_interval_s": 3,
+    "sqlite_path": "output/farm.db"
   }
 }
