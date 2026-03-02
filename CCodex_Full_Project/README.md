@@ -21,6 +21,18 @@ pip install -r requirements.txt
 python main.py --debug --layout config/layout.json
 ```
 
+## Startprogramm (GUI)
+Für einen übersichtlichen Start im Dashboard-Stil kannst du das neue Startprogramm verwenden:
+
+```bash
+python start_programm.py
+```
+
+Funktionen:
+- Start/Stop der Analyse per Button
+- Einfache Konfiguration von Layout, FPS, Snapshot-Intervall und DB
+- Live-Log + Snapshot-Zusammenfassung im selben Fenster
+
 ## Tesseract-Pfad konfigurieren
 Wenn `pytesseract` Tesseract nicht findet, setze den Pfad in `vision/ocr.py` oder via Umgebungsvariable:
 
