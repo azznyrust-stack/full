@@ -1,26 +1,70 @@
 {
   "window_title_contains": "DeinSpiel",
   "rois": {
-    "gold_text": { "x": 0.80, "y": 0.02, "w": 0.15, "h": 0.05 },
-    "loot_chat": { "x": 0.02, "y": 0.70, "w": 0.40, "h": 0.25 },
-    "dungeon_status": { "x": 0.35, "y": 0.02, "w": 0.30, "h": 0.06 },
-    "dungeon_counter": { "x": 0.90, "y": 0.10, "w": 0.08, "h": 0.05 },
-    "kill_counter": { "x": 0.90, "y": 0.16, "w": 0.08, "h": 0.05 }
+    "gold_text": {
+      "x": 0.8,
+      "y": 0.02,
+      "w": 0.15,
+      "h": 0.05
+    },
+    "loot_chat": {
+      "x": 0.02,
+      "y": 0.7,
+      "w": 0.4,
+      "h": 0.25
+    },
+    "dungeon_status": {
+      "x": 0.35,
+      "y": 0.02,
+      "w": 0.3,
+      "h": 0.06
+    },
+    "dungeon_counter": {
+      "x": 0.9,
+      "y": 0.1,
+      "w": 0.08,
+      "h": 0.05
+    },
+    "kill_counter": {
+      "x": 0.9,
+      "y": 0.16,
+      "w": 0.08,
+      "h": 0.05
+    }
   },
   "parsing": {
     "loot_patterns": [
-      "(?i)you (?:received|obtained|looted)\\s+(.+)",
+      "(?i)(?:du hast|ihr habt)\\s+(.+)\\s+(?:erhalten|gefunden)",
       "(?i)beute[:\\-]?\\s*(.+)",
-      "(?i)item erhalten[:\\-]?\\s*(.+)"
+      "(?i)(?:gegenstand|item) erhalten[:\\-]?\\s*(.+)"
     ],
-    "loot_keywords": ["loot", "beute", "erhalten", "obtained", "received"],
-    "dungeon_start_keywords": ["dungeon start", "entered dungeon", "betritt", "startet dungeon"],
-    "dungeon_end_keywords": ["dungeon clear", "dungeon completed", "verlassen", "abgeschlossen"],
+    "loot_keywords": [
+      "beute",
+      "erhalten",
+      "gefunden",
+      "gegenstand"
+    ],
+    "dungeon_start_keywords": [
+      "dungeon gestartet",
+      "dungeon betreten",
+      "betritt",
+      "startet dungeon"
+    ],
+    "dungeon_end_keywords": [
+      "dungeon abgeschlossen",
+      "dungeon beendet",
+      "verlassen",
+      "abgeschlossen"
+    ],
     "kill_patterns": [
-      "(?i)(?:you|du) (?:killed|defeated)\\s+(.+)",
-      "(?i)(.+) (?:was slain|wurde besiegt)"
+      "(?i)(?:du|ihr)\\s*(?:hast|habt)?\\s*(?:besiegt|getötet)\\s+(.+)",
+      "(?i)(.+) wurde besiegt"
     ],
-    "kill_keywords": ["killed", "defeated", "besiegt", "slain"]
+    "kill_keywords": [
+      "getötet",
+      "besiegt",
+      "erlegt"
+    ]
   },
   "smoothing": {
     "median_window": 5,
