@@ -8,41 +8,7 @@ Das Projekt ist eine **Read-only Live-Farm-Analytics-Pipeline**: Es liest Bildau
 
 ---
 
-## 2) Vollständiges Datei-Inventar (aktuell)
 
-Diese Liste enthält **jede Datei**, die aktuell im Ordner vorhanden ist:
-
-- `AGENTS.md`
-- `CHATGPT_ORDNER_ANALYSE.md`
-- `README.md`
-- `main.py`
-- `requirements.txt`
-- `capture/__init__.py`
-- `capture/capture_backend.py`
-- `capture/window_finder.py`
-- `config/__init__.py`
-- `config/layout.json`
-- `core/__init__.py`
-- `core/debounce.py`
-- `core/event_builder.py`
-- `core/pipeline.py`
-- `core/stats.py`
-- `core/telemetry.py`
-- `output/__init__.py`
-- `output/storage_sqlite.py`
-- `tests/test_debounce.py`
-- `tests/test_event_builder.py`
-- `tools/__init__.py`
-- `tools/calibrate_ocr.py`
-- `tools/roi_tuner.py`
-- `vision/__init__.py`
-- `vision/motion.py`
-- `vision/ocr.py`
-- `vision/ocr_text.py`
-
----
-
-## 3) Datei-für-Datei Dokumentation
 
 ## Root-Dateien
 
@@ -54,9 +20,6 @@ Diese Liste enthält **jede Datei**, die aktuell im Ordner vorhanden ist:
 - Projektbeschreibung, Guardrails, Setup, Startbefehle, Troubleshooting.
 - Dokumentiert Laufzeitoptionen (`--debug`, `--debug-ocr`, `--db`, ...).
 
-### `CHATGPT_ORDNER_ANALYSE.md`
-- Diese Analyse-Datei mit vollständigem Datei-Inventar und Funktionsübersicht.
-- Dient als schnelle Onboarding- und Nachschlage-Dokumentation.
 
 ### `main.py`
 - Minimaler Einstiegspunkt.
@@ -250,7 +213,7 @@ Diese Liste enthält **jede Datei**, die aktuell im Ordner vorhanden ist:
 
 ---
 
-## 4) Kurzfazit zur Ordnerstruktur
+
 
 - **capture/**: Frame- und Fensterzugriff
 - **vision/**: OCR/Preprocessing/Bewegung

@@ -1,14 +1,6 @@
+from core.roi import crop
 from vision.ocr import ocr_digits, DigitSmoother
 from vision.ocr_text import ocr_text_multiline
-
-
-def crop(frame, roi):
-    h, w = frame.shape[:2]
-    x = int(max(0.0, min(1.0, roi["x"])) * w)
-    y = int(max(0.0, min(1.0, roi["y"])) * h)
-    rw = int(max(0.0, min(1.0, roi["w"])) * w)
-    rh = int(max(0.0, min(1.0, roi["h"])) * h)
-    return frame[y : y + rh, x : x + rw]
 
 
 class TelemetryExtractor:
