@@ -45,6 +45,16 @@ set TESSERACT_CMD=C:\Program Files\Tesseract-OCR\tesseract.exe
   - `smoothing`-Parameter in `config/layout.json` anpassen.
   - `--debug-ocr` verwenden.
 
+
+## Rubinum-Setup (Fenstername + Yang live)
+Die Standard-Config ist auf das Fenster **"Rubinum: Classic - Legacy of Meley"** gesetzt.
+
+- `window_title_contains` sucht genau dieses Fenster.
+- `rois.gold_text` ist standardmäßig unten rechts platziert, damit der **Yang-Wert** live per OCR gelesen wird.
+- Die Ausgabe enthält `profit_per_hour`, wodurch du direkt siehst, wie viel Yang pro Stunde erwirtschaftet wird.
+
+Falls die UI-Skalierung im Client abweicht, passe nur die ROI in `config/layout.json` an (Werte bleiben relativ `0..1`).
+
 ## Laufzeit-Optionen
 ```bash
 python main.py \
