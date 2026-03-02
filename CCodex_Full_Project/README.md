@@ -66,3 +66,30 @@ python tests/test_debounce.py
 
 ## Regex-/Parsing-Defaults
 Die Standard-Regexes für Loot/Kill/Dungeon liegen in `config/layout.json` unter `parsing`. Sie sind bewusst konservativ gewählt, um False-Positives zu reduzieren. Bei abweichender Spielsprache bitte Keywords/Patterns anpassen.
+
+## Was gibt es noch zu verbessern?
+Priorisiert nach Nutzen/Stabilität bei gleichbleibend read-only Ansatz:
+
+1. **Messbare OCR-Qualität je ROI einführen**
+   - Pro ROI Konfidenz, Fehlerrate und "empty read" als Metrik speichern.
+   - Schwellwerte pro ROI in `layout.json` definieren, um nur valide Reads zu akzeptieren.
+
+2. **Parsing robuster gegen Schreibvarianten machen**
+   - Keywords für mehrere Sprachen/Schreibweisen als Listen pflegen.
+   - Optional Regex-Fallbacks mit normalisiertem Text (z. B. `0/O`, `1/l` Verwechslungen).
+
+3. **Replay-/Fixture-Tests für Pipeline ergänzen**
+   - Gespeicherte Frames als Test-Fixtures verwenden und End-to-End Events prüfen.
+   - Regressionstests für kritische Events (Loot-Spikes, Dungeon-Start/Ende).
+
+4. **Persistenz erweitern (Session Reports)**
+   - Tägliche und Session-basierte Aggregationen in SQLite materialisieren.
+   - Einfache Exportpfade (`csv/json`) für externe Analyse bereitstellen.
+
+5. **Kalibrierungstools ausbauen**
+   - `roi_tuner.py` um Live-Vorschau der OCR-Preprocessing-Schritte erweitern.
+   - Ein Assistent, der empfohlene ROI-Offsets aus mehreren Frames ableitet.
+
+6. **Performance observability**
+   - Frame-Zeit, OCR-Zeit und Queue-Lag als Telemetrie loggen.
+   - Warnungen, wenn Ziel-FPS über längere Zeit unterschritten wird.
