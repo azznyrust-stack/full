@@ -8,7 +8,7 @@ Das Projekt ist eine **Read-only Live-Farm-Analytics-Pipeline**: Es liest Bildau
 
 ---
 
-## 2) Datei-für-Datei Dokumentation
+
 
 ## Root-Dateien
 
@@ -19,6 +19,7 @@ Das Projekt ist eine **Read-only Live-Farm-Analytics-Pipeline**: Es liest Bildau
 ### `README.md`
 - Projektbeschreibung, Guardrails, Setup, Startbefehle, Troubleshooting.
 - Dokumentiert Laufzeitoptionen (`--debug`, `--debug-ocr`, `--db`, ...).
+
 
 ### `main.py`
 - Minimaler Einstiegspunkt.
@@ -212,7 +213,7 @@ Das Projekt ist eine **Read-only Live-Farm-Analytics-Pipeline**: Es liest Bildau
 
 ---
 
-## 3) Kurzfazit zur Ordnerstruktur
+
 
 - **capture/**: Frame- und Fensterzugriff
 - **vision/**: OCR/Preprocessing/Bewegung
