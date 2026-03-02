@@ -1,5 +1,6 @@
 import cv2
-import pytesseract
+
+from vision.easyocr_engine import get_easyocr_reader
 
 
 def preprocess_text_roi(bgr):
@@ -23,7 +24,8 @@ def preprocess_text_roi(bgr):
 
 def ocr_text_multiline(bgr):
     dbg = preprocess_text_roi(bgr)
-    text = pytesseract.image_to_string(dbg["threshold"], config="--psm 6")
-    normalized = "\n".join(line.strip() for line in text.splitlines() if line.strip())
+    reader = get_easyocr_reader()
+    chunks = reader.readtext(dbg["threshold"], detail=0, paragraph=False)
+    normalized = "\n".join(chunk.strip() for chunk in chunks if chunk.strip())
     dbg["text"] = normalized
     return normalized, dbg
