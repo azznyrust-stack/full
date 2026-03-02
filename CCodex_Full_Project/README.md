@@ -62,7 +62,8 @@ python main.py \
 python -m compileall .
 python tests/test_event_builder.py
 python tests/test_debounce.py
+python tests/test_telemetry_crop.py
 ```
 
 ## Regex-/Parsing-Defaults
-Die Standard-Regexes für Loot/Kill/Dungeon liegen in `config/layout.json` unter `parsing`. Sie sind bewusst konservativ gewählt, um False-Positives zu reduzieren. Bei abweichender Spielsprache bitte Keywords/Patterns anpassen.
+Die Standard-Regexes für Loot/Kill/Dungeon liegen in `config/layout.json` unter `parsing` und sind auf **deutsche Spielsprache** ausgelegt. Sie sind bewusst konservativ gewählt, um False-Positives zu reduzieren. Bei abweichender Spielsprache bitte Keywords/Patterns anpassen.
