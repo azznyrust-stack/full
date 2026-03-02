@@ -21,9 +21,6 @@ pip install -r requirements.txt
 python main.py --debug --layout config/layout.json
 ```
 
-## OCR-Engine (EasyOCR)
-Das Projekt verwendet **ausschließlich EasyOCR** (kein Tesseract).
-
 Für flüssige Laufzeit wird intern eine einzelne Reader-Instanz wiederverwendet, damit pro Frame kein neues OCR-Modell geladen werden muss.
 
 ## Troubleshooting
