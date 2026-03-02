@@ -3,7 +3,8 @@ from collections import deque
 from statistics import median
 
 import cv2
-import pytesseract
+
+from vision.easyocr_engine import get_easyocr_reader
 
 _DIGITS = re.compile(r"\d+")
 
@@ -37,9 +38,11 @@ def _preprocess_digits(bgr):
 
 def ocr_digits(bgr, return_debug=False):
     gray, th = _preprocess_digits(bgr)
-    text = pytesseract.image_to_string(th, config="--psm 7 -c tessedit_char_whitelist=0123456789")
+    reader = get_easyocr_reader()
+    chunks = reader.readtext(th, detail=0, paragraph=False, allowlist="0123456789")
+    text = " ".join(chunks).strip()
     m = _DIGITS.search(text)
     value = int(m.group()) if m else None
     if return_debug:
-        return value, {"gray": gray, "threshold": th, "raw_text": text.strip()}
+        return value, {"gray": gray, "threshold": th, "raw_text": text}
     return value

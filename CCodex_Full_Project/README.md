@@ -10,7 +10,7 @@ Dieses Projekt analysiert ausschließlich Bilddaten aus einem Spiel-Fenster (Fra
 
 ## Voraussetzungen
 - Python 3.10+
-- Tesseract OCR installiert
+- EasyOCR (wird über `requirements.txt` installiert)
 - Windows (für `pywin32` Window-Discovery)
 
 ## Quickstart
@@ -21,30 +21,7 @@ pip install -r requirements.txt
 python main.py --debug --layout config/layout.json
 ```
 
-## Startprogramm (GUI)
-Für einen übersichtlichen Start im Dashboard-Stil kannst du das neue Startprogramm verwenden:
-
-```bash
-python start_programm.py
-```
-
-Funktionen:
-- Start/Stop der Analyse per Button
-- Einfache Konfiguration von Layout, FPS, Snapshot-Intervall und DB
-- Live-Log + Snapshot-Zusammenfassung im selben Fenster
-
-## Tesseract-Pfad konfigurieren
-Wenn `pytesseract` Tesseract nicht findet, setze den Pfad in `vision/ocr.py` oder via Umgebungsvariable:
-
-```python
-import pytesseract
-pytesseract.pytesseract.tesseract_cmd = r"C:\\Program Files\\Tesseract-OCR\\tesseract.exe"
-```
-
-Oder:
-```bash
-set TESSERACT_CMD=C:\Program Files\Tesseract-OCR\tesseract.exe
-```
+Für flüssige Laufzeit wird intern eine einzelne Reader-Instanz wiederverwendet, damit pro Frame kein neues OCR-Modell geladen werden muss.
 
 ## Troubleshooting
 - **Fenster nicht gefunden:** `window_title_contains` in `config/layout.json` an den exakten Fenstertitel anpassen.
@@ -52,10 +29,10 @@ set TESSERACT_CMD=C:\Program Files\Tesseract-OCR\tesseract.exe
   - Spiel im **Windowed/Borderless** Modus starten.
   - Hardware-Overlay/Exklusiv-Vollbild deaktivieren.
   - Capture-Rechte prüfen (gleiches Privileg-Level wie das Spiel).
-- **OCR instabil:**
+- **OCR instabil/langsam:**
   - ROI präziser setzen (`tools/roi_tuner.py`).
   - `smoothing`-Parameter in `config/layout.json` anpassen.
-  - `--debug-ocr` verwenden.
+  - `--fps` schrittweise erhöhen und mit `--debug-ocr` validieren.
 
 ## Laufzeit-Optionen
 ```bash
